@@ -26,7 +26,6 @@ public class CF071AWayTooLongWords {
                 System.out.println(words[k]);
 
             }
-
             }
         }
     }
