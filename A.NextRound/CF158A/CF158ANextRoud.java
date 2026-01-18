@@ -2,6 +2,7 @@ package CF158A;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class CF158ANextRoud {
@@ -16,6 +17,7 @@ public class CF158ANextRoud {
         int kthPosition = 0;
         int participantsCount = 0;
 
+
               nextToken = initialTokenizer.nextToken();
               participantsCount = Integer.parseInt(nextToken);
 
@@ -24,10 +26,12 @@ public class CF158ANextRoud {
 
         String scoreLine = bufferedReader.readLine();
               StringTokenizer scoreTokenizer = new StringTokenizer (scoreLine, " ");
-              while (scoreTokenizer.hasMoreTokens()) {
-                  nextToken = scoreTokenizer.nextToken();
-                  qualifiedParticipants = (Integer.parseInt(nextToken)>=kthPosition&&Integer.parseInt(nextToken)>0)?qualifiedParticipants+1 :qualifiedParticipants;
-              }
+        int [] scores = new int[participantsCount];
+        for (int j = 0;scoreTokenizer.hasMoreTokens(); j++) {
+            scores[j] = Integer.parseInt(scoreTokenizer.nextToken());
+        }
+        Arrays.stream(scores).sorted();
+
         System.out.println(qualifiedParticipants);
     }
 }
