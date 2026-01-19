@@ -1,8 +1,7 @@
-package CF158A;
+package CF158C;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class CF158ANextRoud {
