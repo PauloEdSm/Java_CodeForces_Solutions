@@ -18,12 +18,15 @@ public class CF231CCToAddOrNotToAdd {
 
             String ValuesLine = bufferedReader.readLine();
             StringTokenizer valueTokenizer = new StringTokenizer(ValuesLine, " ");
+
             int [] nums = new int[n];
             for (int j = 0;valueTokenizer.hasMoreTokens(); j++) {
                 nums[j] = Integer.parseInt(valueTokenizer.nextToken());
             }
+            Arrays.sort(nums);
 
+            for (int i = 0; i < nums.length; i++) {
 
+            }
 		}
-	}
-
+    }
