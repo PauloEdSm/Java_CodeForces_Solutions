@@ -9,24 +9,31 @@ public class CF231CCToAddOrNotToAdd {
     //A resolution is for a problem 231C on CodeForces
     //https://codeforces.com/problemset/problem/231/C
 		public static void main(String[] args) throws Exception {
+            int curretSum=0;
+            int maxFreq=0;
+            int maxValueOfOperation;
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
             String headLine = bufferedReader.readLine();
-            StringTokenizer headerTokens = new StringTokenizer(headLine," ");
+            StringTokenizer headerTokens = new StringTokenizer(headLine, " ");
             int n = Integer.parseInt(headerTokens.nextToken());
-            int k = Integer.parseInt(headerTokens.nextToken()) ;
+            int k = Integer.parseInt(headerTokens.nextToken());
 
             String ValuesLine = bufferedReader.readLine();
             StringTokenizer valueTokenizer = new StringTokenizer(ValuesLine, " ");
-
-            int [] nums = new int[n];
-            for (int j = 0;valueTokenizer.hasMoreTokens(); j++) {
+            int[] nums = new int[n];
+            for (int j = 0; valueTokenizer.hasMoreTokens(); j++) {
                 nums[j] = Integer.parseInt(valueTokenizer.nextToken());
             }
+
             Arrays.sort(nums);
-
-            for (int i = 0; i < nums.length; i++) {
-
+            maxValueOfOperation = nums[0];
+            for (int i=0,j = 0;i<nums.length&&curretSum<=curretSum+nums[i]-nums[j];i++ ,maxFreq++) {
+                while (i>j++||i==j++) {
+                    curretSum =+ nums[j] - nums[i];
+                }
+                maxValueOfOperation = (maxValueOfOperation<=nums[j])?nums[j]:maxValueOfOperation;
             }
+            System.out.println(maxFreq+" "+curretSum);
+        }
 		}
-    }
