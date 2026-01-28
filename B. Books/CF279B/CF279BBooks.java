@@ -8,7 +8,8 @@ public class CF279BBooks {
     //A resolution is for a problem 279B on CodeForces
     //https://codeforces.com/problemset/problem/279/B
     public static void main(String[] args) throws Exception {
-        int dayCounter= 1;
+        int dayCounter = 1;
+        int currentSDayCounter = 1;
         int sum = 0;
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader (System.in));
 
@@ -28,12 +29,22 @@ public class CF279BBooks {
             readingTimePerBook[index] = Integer.parseInt(lastLineReader.nextToken());
 
         }
+        int start = 0;
+        int maxBooks =0;
+        for (int end = 0; end < numberOfBooks; end++) {
 
-        for (int start = 0; start < numberOfBooks; start++) {
-            for (int end = start;end<numberOfBooks;end++){
+            sum += readingTimePerBook[end];
 
+            while (sum > maxTime) {
+                sum -= readingTimePerBook[start];
+                start++;
             }
-            
+
+            int currentBooks = end - start + 1;
+            if (currentBooks > maxBooks) {
+                maxBooks = currentBooks;
+            }
         }
+        System.out.println(maxBooks);
     }
 }
