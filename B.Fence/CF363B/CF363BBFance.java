@@ -13,13 +13,27 @@ public class CF363BBFance {
         int plankCount = Integer.parseInt(firstLineReader.nextToken());
         int minWindowSum = Integer.parseInt(firstLineReader.nextToken());
 
+
         String lastLineRead = bufferedReader.readLine();
         StringTokenizer lastLineReader = new StringTokenizer(lastLineRead, " ");
-
         int[] plankHeights = new int[plankCount];
-
         for (int index = 0; index < plankCount;index++){
             plankHeights[index] = Integer.parseInt(lastLineReader.nextToken());
         }
+
+        int startIndex = 0;
+        int bestStartIndex = 0;
+        int sum = 0;
+        for (int endIndex = 0; endIndex<plankCount;endIndex++) {
+            sum += plankHeights[endIndex];
+            while (sum < minWindowSum) {
+                sum -= plankHeights[startIndex];
+                startIndex++;
+            }
+            int currentPlanks = endIndex - startIndex;
+            if (currentPlanks < bestStartIndex)
+                bestStartIndex = currentPlanks;
+        }
+        System.out.println(bestStartIndex);
     }
 }
